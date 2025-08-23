@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body style={{ fontFamily: "Inter" }}>
+			<body style={{ fontFamily: "Inter", overscrollBehavior: "none" }}>
 				<Providers>{children}</Providers>
 			</body>
 		</html>

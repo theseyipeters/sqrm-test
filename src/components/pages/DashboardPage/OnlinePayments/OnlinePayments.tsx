@@ -1,9 +1,12 @@
 import { Card, Clipboard, Flex, Stack, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+import BarChart from "./BarChart/BarChart";
 
 export default function OnlinePayments() {
 	return (
-		<VStack align={"start"}>
+		<VStack
+			gap={"40px"}
+			align={"start"}>
 			<Card.Root width="325px">
 				<Card.Body
 					py={5}
@@ -57,6 +60,7 @@ export default function OnlinePayments() {
 			</Card.Root>
 
 			{/* -------- Chart here ---------- */}
+			<BarChart />
 		</VStack>
 	);
 }

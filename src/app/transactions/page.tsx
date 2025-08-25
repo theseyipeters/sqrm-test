@@ -1,6 +1,13 @@
 import DashboardLayout from "@/components/layout/DashboardLayout/DashboardLayout";
 import Transactions from "@/components/pages/Transactions/Transactions";
-import React from "react";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+	return {
+		title: "Transactions",
+		description: "Manage and view all transactions",
+	};
+}
 
 export default function page() {
 	return (

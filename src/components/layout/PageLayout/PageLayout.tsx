@@ -12,9 +12,10 @@ export default function PageLayout({ children }: PageLayoutProps) {
 		<>
 			<VStack
 				py={10}
-				px={10}
+				px={{ base: 5, md: 10 }}
 				h={"100%"}
-				align="stretch">
+				align="stretch"
+				overflow="auto">
 				<>{children}</>
 			</VStack>
 		</>

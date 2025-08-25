@@ -1,8 +1,12 @@
-import { FiSettings } from "react-icons/fi";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { IoWalletOutline } from "react-icons/io5";
-import { VscGlobe } from "react-icons/vsc";
 import { IconType } from "react-icons";
+import {
+	AccountsSvg,
+	DashboardSvg,
+	GlobeSvg,
+	SettingsSvg,
+	TransactionsSvg,
+	TransfersSvg,
+} from "@/svgs/svgs";
 
 export interface SidebarLink {
 	label: string;
@@ -14,31 +18,31 @@ export const SIDEBAR_LINKS: SidebarLink[] = [
 	{
 		label: "Get Started",
 		href: "/",
-		icon: VscGlobe,
+		icon: GlobeSvg,
 	},
 	{
 		label: "Dashboard",
 		href: "/dashboard",
-		icon: LuLayoutDashboard,
+		icon: DashboardSvg,
 	},
 	{
 		label: "Accounts",
 		href: "/accounts",
-		icon: IoWalletOutline,
+		icon: AccountsSvg,
 	},
 	{
 		label: "Transfers",
 		href: "/transfers",
-		icon: FiSettings,
+		icon: TransfersSvg,
 	},
 	{
 		label: "Transactions",
 		href: "/transactions",
-		icon: FiSettings,
+		icon: TransactionsSvg,
 	},
 	{
 		label: "Settings",
 		href: "/dashboard/settings",
-		icon: FiSettings,
+		icon: SettingsSvg,
 	},
 ];

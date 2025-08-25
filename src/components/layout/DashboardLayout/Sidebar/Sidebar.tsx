@@ -1,5 +1,4 @@
 import { Box, HStack, Text, useMediaQuery, VStack } from "@chakra-ui/react";
-import React, { useState } from "react";
 import { SIDEBAR_LINKS } from "../data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

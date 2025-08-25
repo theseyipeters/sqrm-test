@@ -1,4 +1,6 @@
-export const transactions = [
+import { Transaction } from "@/types/transaction";
+
+export const transactions: Transaction[] = [
 	{
 		amount: "₦43,644",
 		id: "TR_8401857902",

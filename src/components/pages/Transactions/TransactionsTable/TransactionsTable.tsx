@@ -7,13 +7,13 @@ import {
 	Text,
 	ButtonGroup,
 	IconButton,
-	Status,
 } from "@chakra-ui/react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import StatusBadge from "@/components/_common/StatusBadge/StatusBadge";
+import { Transaction } from "@/types/transaction";
 
 interface TransactionTableProps {
-	transactions: any[];
+	transactions: Transaction[];
 	pageSize?: number;
 }
 
@@ -23,9 +23,9 @@ export default function TransactionsTable({
 }: TransactionTableProps) {
 	const [selection, setSelection] = useState<string[]>([]);
 	const [page, setPage] = useState(1);
-	const [visibleTransactions, setVisibleTransactions] = useState<any[]>([]);
-
-	const totalPages = Math.ceil(transactions.length / pageSize);
+	const [visibleTransactions, setVisibleTransactions] = useState<Transaction[]>(
+		[]
+	);
 
 	useEffect(() => {
 		const start = (page - 1) * pageSize;
@@ -57,7 +57,9 @@ export default function TransactionsTable({
 								}
 								onCheckedChange={(changes) => {
 									if (changes.checked) {
-										setSelection(visibleTransactions.map((tx: any) => tx.id));
+										setSelection(
+											visibleTransactions.map((tx: Transaction) => tx.id)
+										);
 									} else {
 										setSelection([]);
 									}
@@ -76,7 +78,7 @@ export default function TransactionsTable({
 				</Table.Header>
 
 				<Table.Body color={"#535379"}>
-					{visibleTransactions.map((tx: any, index: number) => (
+					{visibleTransactions.map((tx: Transaction, index: number) => (
 						<Table.Row key={index}>
 							<Table.Cell
 								px={5}

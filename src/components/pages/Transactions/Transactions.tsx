@@ -10,7 +10,6 @@ import {
 	Popover,
 	Separator,
 	Stack,
-	Group,
 	Text,
 	useMediaQuery,
 } from "@chakra-ui/react";

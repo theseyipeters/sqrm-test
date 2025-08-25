@@ -1,4 +1,9 @@
 import StatusBadge from "@/components/_common/StatusBadge/StatusBadge";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import {
+	setPage,
+	setVisibleTransactions,
+} from "@/redux/slices/transactionSlice";
 import { Transaction } from "@/types/transaction";
 import {
 	Box,
@@ -11,7 +16,7 @@ import {
 	Text,
 	VStack,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 interface TransactionGridProps {
@@ -23,16 +28,16 @@ export default function TransactionsGrid({
 	transactions,
 	pageSize = 10,
 }: TransactionGridProps) {
-	const [page, setPage] = useState(1);
-	const [visibleTransactions, setVisibleTransactions] = useState<Transaction[]>(
-		[]
+	const dispatch = useAppDispatch();
+	const { page, visibleTransactions } = useAppSelector(
+		(state) => state.transaction
 	);
 
 	useEffect(() => {
 		const start = (page - 1) * pageSize;
 		const end = start + pageSize;
 
-		setVisibleTransactions(transactions.slice(start, end));
+		dispatch(setVisibleTransactions(transactions.slice(start, end)));
 	}, [page, pageSize, transactions]);
 	return (
 		<Box>
@@ -40,7 +45,7 @@ export default function TransactionsGrid({
 			<VStack
 				align={"flex-start"}
 				mt={5}>
-				{visibleTransactions.map((tx: Transaction, index: number) => (
+				{visibleTransactions?.map((tx: Transaction, index: number) => (
 					<TransactionCard
 						key={index}
 						transaction={tx}
@@ -69,7 +74,7 @@ export default function TransactionsGrid({
 					pageSize={pageSize}
 					page={page}
 					onPageChange={(e) => {
-						setPage(e.page);
+						dispatch(setPage(e.page));
 					}}>
 					<ButtonGroup
 						variant="ghost"

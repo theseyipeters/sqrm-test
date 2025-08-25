@@ -11,6 +11,11 @@ import {
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import StatusBadge from "@/components/_common/StatusBadge/StatusBadge";
 import { Transaction } from "@/types/transaction";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import {
+	setPage,
+	setVisibleTransactions,
+} from "@/redux/slices/transactionSlice";
 
 interface TransactionTableProps {
 	transactions: Transaction[];
@@ -21,17 +26,17 @@ export default function TransactionsTable({
 	transactions,
 	pageSize = 10,
 }: TransactionTableProps) {
-	const [selection, setSelection] = useState<string[]>([]);
-	const [page, setPage] = useState(1);
-	const [visibleTransactions, setVisibleTransactions] = useState<Transaction[]>(
-		[]
+	const dispatch = useAppDispatch();
+	const { page, visibleTransactions } = useAppSelector(
+		(state) => state.transaction
 	);
+	const [selection, setSelection] = useState<string[]>([]);
 
 	useEffect(() => {
 		const start = (page - 1) * pageSize;
 		const end = start + pageSize;
 
-		setVisibleTransactions(transactions.slice(start, end));
+		dispatch(setVisibleTransactions(transactions.slice(start, end)));
 	}, [page, pageSize, transactions]);
 
 	return (
@@ -49,14 +54,14 @@ export default function TransactionsTable({
 								size="sm"
 								aria-label="Select all"
 								checked={
-									selection.length === visibleTransactions.length
+									selection.length === visibleTransactions?.length
 										? true
 										: selection.length === 0
 										? false
 										: "indeterminate"
 								}
 								onCheckedChange={(changes) => {
-									if (changes.checked) {
+									if (changes.checked && visibleTransactions) {
 										setSelection(
 											visibleTransactions.map((tx: Transaction) => tx.id)
 										);
@@ -78,7 +83,7 @@ export default function TransactionsTable({
 				</Table.Header>
 
 				<Table.Body color={"#535379"}>
-					{visibleTransactions.map((tx: Transaction, index: number) => (
+					{visibleTransactions?.map((tx: Transaction, index: number) => (
 						<Table.Row key={index}>
 							<Table.Cell
 								px={5}
@@ -136,7 +141,7 @@ export default function TransactionsTable({
 					pageSize={pageSize}
 					page={page}
 					onPageChange={(e) => {
-						setPage(e.page);
+						dispatch(setPage(e.page));
 					}}>
 					<ButtonGroup
 						variant="ghost"

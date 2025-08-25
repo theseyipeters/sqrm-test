@@ -43,7 +43,7 @@ export default function Sidebar() {
 											fontWeight={isActive ? "medium" : "normal"}
 											color={isActive ? "white" : "#04004D"}>
 											<link.icon />
-											<Text>{link.label}</Text>
+											<Text fontSize={14}>{link.label}</Text>
 										</HStack>
 									</Link>
 								);
@@ -88,7 +88,7 @@ export default function Sidebar() {
 											fontWeight={isActive ? "medium" : "normal"}
 											color={isActive ? "white" : "#04004D"}>
 											<link.icon />
-											<Text>{link.label}</Text>
+											<Text fontSize={14}>{link.label}</Text>
 										</HStack>
 									</Link>
 								);

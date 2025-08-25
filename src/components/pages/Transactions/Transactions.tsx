@@ -20,6 +20,7 @@ import { useState } from "react";
 import PageLayout from "@/components/layout/PageLayout/PageLayout";
 import TransactionsTable from "./TransactionsTable/TransactionsTable";
 import { transactions } from "./data";
+import TransactionsGrid from "./TransactionsGrid/TransactionsGrid";
 
 const accountFilter = createListCollection({
 	items: [
@@ -184,8 +185,7 @@ export default function Transactions() {
 							<HStack
 								w={"100%"}
 								gap={3}>
-								{/* Date Range Picker */}
-								<Text>Select Date Range:</Text>
+								<Text fontSize={14}>Select Date Range:</Text>
 								<Popover.Root>
 									<Popover.Trigger asChild>
 										<Button
@@ -231,8 +231,12 @@ export default function Transactions() {
 				<Separator mb={8} />
 			</Stack>
 
-			{/* Transactions Table  */}
-			<TransactionsTable transactions={transactions} />
+			{/* Transactions   */}
+			{isMobile ? (
+				<TransactionsGrid transactions={transactions} />
+			) : (
+				<TransactionsTable transactions={transactions} />
+			)}
 		</PageLayout>
 	);
 }

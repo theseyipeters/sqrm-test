@@ -97,7 +97,7 @@ The tests cover:
 
 This project has been deployed on **Netlify**
 
-- [Netlify Deployment Link](https://sqrm-test.netlify.app/transactions)
+- [Netlify Deployment Link](https://sqrm-test.netlify.app/)
 
 ---
 
@@ -120,7 +120,7 @@ src/
 
 **Seyi P. Ajiboye**
 Frontend Engineer | [LinkedIn](https://www.linkedin.com/in/theseyipeters)
-Email: [youremail@example.com](mailto:hellosagethedev@gmail.com)
+Email: [hellosagethedev@gmail.com](mailto:hellosagethedev@gmail.com)
 
 ---
 

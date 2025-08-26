@@ -25,6 +25,7 @@ import TransactionsTable from "./TransactionsTable/TransactionsTable";
 import TransactionsGrid from "./TransactionsGrid/TransactionsGrid";
 import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { getTransactions } from "@/redux/slices/transactionSlice";
+import { toaster } from "@/components/ui/toaster";
 
 const accountFilter = createListCollection({
 	items: [
@@ -99,8 +100,21 @@ export default function Transactions() {
 		setDateRange(newDateRange);
 	};
 
-	const handleGet = () => {
-		dispatch(getTransactions());
+	const handleGet = async () => {
+		try {
+			await dispatch(getTransactions()).unwrap();
+			toaster.create({
+				type: "success",
+				title: "Transactions fetched successfully",
+			});
+		} catch (error) {
+			toaster.create({
+				type: "error",
+				title: "Error fetching transactions",
+				description:
+					"429 - Too Many Requests. Refer: https://beeceptor.com/pricing/",
+			});
+		}
 	};
 
 	useEffect(() => {

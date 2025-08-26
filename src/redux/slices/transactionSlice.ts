@@ -51,6 +51,9 @@ const transactionSlice = createSlice({
 			.addCase(getTransactions.fulfilled, (state, action) => {
 				state.loading = false;
 				state.transactions = action.payload;
+			})
+			.addCase(getTransactions.rejected, (state) => {
+				state.loading = false;
 			});
 	},
 });

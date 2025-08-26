@@ -38,7 +38,7 @@ export default function TransactionsGrid({
 		const end = start + pageSize;
 
 		dispatch(setVisibleTransactions(transactions.slice(start, end)));
-	}, [page, pageSize, transactions]);
+	}, [dispatch, page, pageSize, transactions]);
 	return (
 		<Box>
 			<Text fontWeight={500}>Transactions</Text>

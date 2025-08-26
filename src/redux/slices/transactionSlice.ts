@@ -1,6 +1,7 @@
 import { api } from "@/config/axios";
 import { Transaction } from "@/types/transaction";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 interface TransactionState {
 	loading: boolean;
@@ -16,18 +17,21 @@ const initialState: TransactionState = {
 	visibleTransactions: [],
 };
 
-export const getTransactions = createAsyncThunk(
-	"getTransactions",
-	async (_, { rejectWithValue }) => {
-		try {
-			const { data } = await api.get(`/transactions`);
-			console.log(data);
-			return data.data;
-		} catch (error: any) {
-			return rejectWithValue(error.response.data.message);
-		}
+export const getTransactions = createAsyncThunk<
+	Transaction[],
+	void,
+	{ rejectValue: string }
+>("getTransactions", async (_, { rejectWithValue }) => {
+	try {
+		const { data } = await api.get(`/transactions`);
+		return data.data;
+	} catch (err: unknown) {
+		const error = err as AxiosError<{ message: string }>;
+		return rejectWithValue(
+			error.response?.data?.message || "Something went wrong"
+		);
 	}
-);
+});
 const transactionSlice = createSlice({
 	name: "transaction",
 	initialState,
@@ -45,7 +49,8 @@ const transactionSlice = createSlice({
 				state.loading = true;
 			})
 			.addCase(getTransactions.fulfilled, (state, action) => {
-				(state.loading = false), (state.transactions = action.payload);
+				state.loading = false;
+				state.transactions = action.payload;
 			});
 	},
 });

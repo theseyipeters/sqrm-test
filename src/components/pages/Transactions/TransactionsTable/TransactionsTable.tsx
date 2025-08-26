@@ -37,7 +37,7 @@ export default function TransactionsTable({
 		const end = start + pageSize;
 
 		dispatch(setVisibleTransactions(transactions.slice(start, end)));
-	}, [page, pageSize, transactions]);
+	}, [dispatch, page, pageSize, transactions]);
 
 	return (
 		<>

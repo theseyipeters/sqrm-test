@@ -7,6 +7,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
+			<head>
+				<link
+					rel="shortcut icon"
+					href="/favicon.svg"
+					type="image/x-icon"
+				/>
+			</head>
 			<body style={{ fontFamily: "Inter", overscrollBehavior: "none" }}>
 				<Providers>{children}</Providers>
 			</body>

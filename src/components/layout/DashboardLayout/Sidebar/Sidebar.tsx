@@ -74,10 +74,12 @@ export default function Sidebar() {
 								const isActive = pathname === link.href;
 								return (
 									<Link
+										data-active={pathname === "/dashboard" ? "true" : undefined}
 										onClick={() => dispatch(setIsSidebarOpen(false))}
 										key={link.href}
 										href={link.href}>
 										<HStack
+											data-active={isActive || undefined}
 											_hover={{
 												bg: isActive ? "" : "#3976E820",
 												cursor: "pointer",

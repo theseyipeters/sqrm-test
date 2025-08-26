@@ -42,7 +42,7 @@ export const SIDEBAR_LINKS: SidebarLink[] = [
 	},
 	{
 		label: "Settings",
-		href: "/dashboard/settings",
+		href: "/settings",
 		icon: SettingsSvg,
 	},
 ];

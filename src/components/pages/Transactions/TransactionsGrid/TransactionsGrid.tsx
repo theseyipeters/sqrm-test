@@ -127,36 +127,36 @@ const TransactionCard = ({ transaction }: TransactionCardProp) => {
 			<Card.Body color="fg.muted">
 				<VStack
 					w={"100%"}
-					gap={5}>
+					gap={3}>
 					<Flex
 						w={"100%"}
 						align={"center"}
 						justify={"space-between"}>
-						<Text>AMOUNT:</Text>
-						<Text>{transaction.amount}</Text>
+						<Text fontSize={14}>AMOUNT:</Text>
+						<Text fontSize={14}>{transaction.amount}</Text>
 					</Flex>
 					<Separator w={"100%"} />
 					<Flex
 						w={"100%"}
 						align={"center"}
 						justify={"space-between"}>
-						<Text>TRANSACTION TYPE:</Text>
-						<Text>{transaction.type}</Text>
+						<Text fontSize={14}>TRANSACTION TYPE:</Text>
+						<Text fontSize={14}>{transaction.type}</Text>
 					</Flex>
 					<Separator w={"100%"} />
 					<Flex
 						w={"100%"}
 						align={"center"}
 						justify={"space-between"}>
-						<Text>DATE:</Text>
-						<Text>{transaction.date}</Text>
+						<Text fontSize={14}>DATE:</Text>
+						<Text fontSize={14}>{transaction.date}</Text>
 					</Flex>
 					<Separator w={"100%"} />
 					<Flex
 						w={"100%"}
 						align={"center"}
 						justify={"space-between"}>
-						<Text>STATUS:</Text>
+						<Text fontSize={14}>STATUS:</Text>
 						<StatusBadge status={transaction.status} />
 					</Flex>
 				</VStack>

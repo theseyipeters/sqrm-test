@@ -16,10 +16,13 @@ import {
 import { FiCalendar, FiDownload } from "react-icons/fi";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageLayout from "@/components/layout/PageLayout/PageLayout";
 import TransactionsTable from "./TransactionsTable/TransactionsTable";
-import { transactions } from "./data";
+// import { transactions } from "./data";
+import TransactionsGrid from "./TransactionsGrid/TransactionsGrid";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import { getTransactions } from "@/redux/slices/transactionSlice";
 
 const accountFilter = createListCollection({
 	items: [
@@ -30,7 +33,9 @@ const accountFilter = createListCollection({
 });
 
 export default function Transactions() {
-	const [isMobile] = useMediaQuery(["(max-width: 991px)"]);
+	const dispatch = useAppDispatch();
+	const { transactions } = useAppSelector((state) => state.transaction);
+	const [isMobile] = useMediaQuery(["(max-width: 768px)"]);
 	const [dateRange, setDateRange] = useState<DateRange | undefined>({
 		from: new Date(2023, 5, 6),
 		to: new Date(2023, 5, 15),
@@ -48,6 +53,14 @@ export default function Transactions() {
 			year: "numeric",
 		})}`;
 	};
+
+	const handleGet = () => {
+		dispatch(getTransactions());
+	};
+
+	useEffect(() => {
+		handleGet();
+	}, []);
 
 	return (
 		<PageLayout>
@@ -184,8 +197,7 @@ export default function Transactions() {
 							<HStack
 								w={"100%"}
 								gap={3}>
-								{/* Date Range Picker */}
-								<Text>Select Date Range:</Text>
+								<Text fontSize={14}>Select Date Range:</Text>
 								<Popover.Root>
 									<Popover.Trigger asChild>
 										<Button
@@ -231,8 +243,12 @@ export default function Transactions() {
 				<Separator mb={8} />
 			</Stack>
 
-			{/* Transactions Table  */}
-			<TransactionsTable transactions={transactions} />
+			{/* Transactions   */}
+			{isMobile ? (
+				<TransactionsGrid transactions={transactions} />
+			) : (
+				<TransactionsTable transactions={transactions} />
+			)}
 		</PageLayout>
 	);
 }

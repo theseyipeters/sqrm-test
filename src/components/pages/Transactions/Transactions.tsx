@@ -12,34 +12,40 @@ import {
 	Stack,
 	Text,
 	useMediaQuery,
+	Skeleton,
+	Box,
 } from "@chakra-ui/react";
 import { FiCalendar, FiDownload } from "react-icons/fi";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PageLayout from "@/components/layout/PageLayout/PageLayout";
 import TransactionsTable from "./TransactionsTable/TransactionsTable";
-// import { transactions } from "./data";
 import TransactionsGrid from "./TransactionsGrid/TransactionsGrid";
 import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { getTransactions } from "@/redux/slices/transactionSlice";
 
 const accountFilter = createListCollection({
 	items: [
-		{ label: "All Accounts", value: "all" },
-		{ label: "Savings", value: "savings" },
-		{ label: "Checking", value: "checking" },
+		{ label: "All Transactions", value: "all" },
+		{ label: "Transfer", value: "transfer" },
+		{ label: "Withdrawal", value: "withdrawal" },
+		{ label: "Deposit", value: "deposit" },
 	],
 });
 
 export default function Transactions() {
 	const dispatch = useAppDispatch();
-	const { transactions } = useAppSelector((state) => state.transaction);
+	const { loading, transactions } = useAppSelector(
+		(state) => state.transaction
+	);
 	const [isMobile] = useMediaQuery(["(max-width: 768px)"]);
 	const [dateRange, setDateRange] = useState<DateRange | undefined>({
-		from: new Date(2023, 5, 6),
-		to: new Date(2023, 5, 15),
+		from: new Date(2022, 0, 1),
+		to: new Date(2022, 1, 28),
 	});
+
+	const [selectedAccountFilter, setSelectedAccountFilter] = useState(["all"]);
 
 	const formatDateRange = () => {
 		if (!dateRange?.from || !dateRange?.to) return "Select Date Range";
@@ -54,6 +60,44 @@ export default function Transactions() {
 		})}`;
 	};
 
+	const filteredTransactions = useMemo(() => {
+		if (!transactions) return [];
+
+		return transactions.filter((transaction) => {
+			// Account type filter
+			const accountFilterValue = selectedAccountFilter[0];
+			const matchesAccountFilter =
+				accountFilterValue === "all" ||
+				transaction.type?.toLowerCase() === accountFilterValue.toLowerCase();
+
+			// Date range filter
+			let matchesDateFilter = true;
+			if (dateRange?.from && dateRange?.to && transaction.date) {
+				// Convert transaction date string to Date object
+				const transactionDate = new Date(transaction.date);
+				const fromDate = new Date(dateRange.from);
+				const toDate = new Date(dateRange.to);
+
+				// Set time to start/end of day for proper comparison
+				fromDate.setHours(0, 0, 0, 0);
+				toDate.setHours(23, 59, 59, 999);
+
+				matchesDateFilter =
+					transactionDate >= fromDate && transactionDate <= toDate;
+			}
+
+			return matchesAccountFilter && matchesDateFilter;
+		});
+	}, [transactions, selectedAccountFilter, dateRange]);
+
+	const handleAccountFilterChange = (details: any) => {
+		setSelectedAccountFilter(details.value);
+	};
+
+	const handleDateRangeChange = (newDateRange: any) => {
+		setDateRange(newDateRange);
+	};
+
 	const handleGet = () => {
 		dispatch(getTransactions());
 	};
@@ -64,7 +108,6 @@ export default function Transactions() {
 
 	return (
 		<PageLayout>
-			{/* Header Filters */}
 			<Stack>
 				{isMobile ? (
 					<Stack
@@ -79,7 +122,8 @@ export default function Transactions() {
 							<Select.Root
 								variant={"subtle"}
 								collection={accountFilter}
-								value={[accountFilter.items[0].value]}
+								value={selectedAccountFilter}
+								onValueChange={handleAccountFilterChange}
 								size="sm">
 								<Select.HiddenSelect />
 								<Select.Control w={130}>
@@ -144,7 +188,7 @@ export default function Transactions() {
 												<DayPicker
 													mode="range"
 													selected={dateRange}
-													onSelect={setDateRange}
+													onSelect={handleDateRangeChange}
 													numberOfMonths={2}
 												/>
 											</Popover.Body>
@@ -160,15 +204,15 @@ export default function Transactions() {
 						align="center"
 						mb={4}
 						gap={4}>
-						{/* Account Select */}
 						<Flex>
 							<Select.Root
 								variant={"subtle"}
 								collection={accountFilter}
-								value={[accountFilter.items[0].value]}
-								size="sm">
+								value={selectedAccountFilter}
+								onValueChange={handleAccountFilterChange}
+								size="md">
 								<Select.HiddenSelect />
-								<Select.Control w={130}>
+								<Select.Control w={180}>
 									<Select.Trigger>
 										<Select.ValueText placeholder="Select" />
 									</Select.Trigger>
@@ -243,11 +287,21 @@ export default function Transactions() {
 				<Separator mb={8} />
 			</Stack>
 
-			{/* Transactions   */}
-			{isMobile ? (
-				<TransactionsGrid transactions={transactions} />
+			{loading ? (
+				<Box w={"100%"}>
+					<Skeleton
+						variant={"shine"}
+						height="700px"
+					/>
+				</Box>
 			) : (
-				<TransactionsTable transactions={transactions} />
+				<>
+					{isMobile ? (
+						<TransactionsGrid transactions={filteredTransactions} />
+					) : (
+						<TransactionsTable transactions={filteredTransactions} />
+					)}
+				</>
 			)}
 		</PageLayout>
 	);

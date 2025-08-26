@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SQRM Test - Frontend Engineer Assessment
+
+This project is a frontend assessment submission for the Frontend Engineer role at **Squareme Technologies**. It demonstrates a complete React/Next.js + TypeScript implementation, state management with Redux Toolkit, integration with mock APIs, and basic component testing.
+
+---
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Folder Structure](#folder-structure)
+- [Author](#author)
+
+---
+
+## Project Overview
+
+The **SQRM Test** project implements a dashboard interface with multiple pages, including:
+
+- **Dashboard** – Displays key information such as online payments and transaction summaries.
+- **Transactions** – Allows filtering, pagination, and viewing transaction details.
+- **Homepage** – Landing page for the app.
+
+All data is fetched using **mock API calls** and managed with **Redux Toolkit**.
+
+---
+
+## Tech Stack
+
+- **Next.js** – Framework for React with server-side rendering support
+- **TypeScript** – Type-safe development
+- **Redux Toolkit** – State management
+- **Chakra UI** – UI component library
+- **React Testing Library + Jest** – Component testing
+- **Netlify** – Deployment platform
+
+---
+
+## Features
+
+- Fully responsive UI using Chakra UI
+- Dashboard with interactive tabs and charts
+- Transactions page with filters (account type, date range) and pagination
+- Mock API integration for fetching data
+- Redux Toolkit for global state management
+- Clipboard copy functionality for account numbers
+- Basic unit tests for components and mock API calls
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js >= 18.x
+- Yarn or npm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repo-url>
+cd sqrm-test
+yarn install  # or npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev  # or npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Testing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the component tests and mock API tests:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+yarn test  # or npm run test
+```
 
-## Deploy on Vercel
+The tests cover:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Rendering of key components
+- Clipboard copy functionality
+- Transactions filtering and pagination
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Deployment
+
+This project has been deployed on **Netlify**
+
+- [Netlify Deployment Link](https://sqrm-test.netlify.app/transactions)
+
+---
+
+## Folder Structure
+
+```
+src/
+├── components/
+│   ├── _common/        # Reusable components
+│   ├── pages/          # Page-level components (Dashboard, Transactions, Homepage)
+├── hooks/              # Custom hooks
+├── redux/              # Redux Toolkit slices and store
+├── types/              # TypeScript types/interfaces
+├── utils/              # Helper functions
+```
+
+---
+
+## Author
+
+**Seyi P. Ajiboye**
+Frontend Engineer | [LinkedIn](https://www.linkedin.com/in/theseyipeters)
+Email: [youremail@example.com](mailto:hellosagethedev@gmail.com)
+
+---
+
+### Notes
+
+This project was built as part of a **frontend assessment test** for Squareme Technologies and showcases:
+
+- Type-safe Next.js development with TypeScript
+- Component-driven architecture
+- State management using Redux Toolkit
+- Integration with mock APIs
+- Basic unit testing

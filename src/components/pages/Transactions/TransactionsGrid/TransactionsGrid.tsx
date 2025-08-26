@@ -9,6 +9,7 @@ import {
 	Box,
 	ButtonGroup,
 	Card,
+	EmptyState,
 	Flex,
 	IconButton,
 	Pagination,
@@ -18,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { MdOutlineHourglassEmpty } from "react-icons/md";
 
 interface TransactionGridProps {
 	transactions: Transaction[];
@@ -39,6 +41,25 @@ export default function TransactionsGrid({
 
 		dispatch(setVisibleTransactions(transactions.slice(start, end)));
 	}, [dispatch, page, pageSize, transactions]);
+
+	if (transactions.length === 0) {
+		return (
+			<EmptyState.Root>
+				<EmptyState.Content>
+					<EmptyState.Indicator>
+						<MdOutlineHourglassEmpty />
+					</EmptyState.Indicator>
+					<VStack textAlign="center">
+						<EmptyState.Title>No transactions found</EmptyState.Title>
+						<EmptyState.Description>
+							You don&apos;t have any transactions yet. Once you start making
+							payments, they&apos;ll show up here.
+						</EmptyState.Description>
+					</VStack>
+				</EmptyState.Content>
+			</EmptyState.Root>
+		);
+	}
 	return (
 		<Box>
 			<Text fontWeight={500}>Transactions</Text>

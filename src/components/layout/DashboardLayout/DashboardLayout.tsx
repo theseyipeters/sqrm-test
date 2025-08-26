@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
+import { Toaster } from "@/components/ui/toaster";
 
 interface DashboardLayoutProps {
 	children: ReactNode;
@@ -38,6 +39,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 					</Box>
 				</Flex>
 			</Flex>
+
+			<Toaster />
 		</Box>
 	);
 }

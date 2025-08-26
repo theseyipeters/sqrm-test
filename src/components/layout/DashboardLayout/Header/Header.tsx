@@ -1,7 +1,14 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { setIsSidebarOpen } from "@/redux/slices/actionSlice";
 import { BellSvg, FundRLogo } from "@/svgs/svgs";
-import { Box, Flex, Group, IconButton, useMediaQuery } from "@chakra-ui/react";
+import {
+	Avatar,
+	Box,
+	Flex,
+	Group,
+	IconButton,
+	useMediaQuery,
+} from "@chakra-ui/react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Header() {
@@ -41,16 +48,12 @@ export default function Header() {
 						<BellSvg />
 					</Box>
 					<Group>
-						<Flex
-							align={"center"}
-							justify={"center"}
-							color={"white"}
-							w={50}
-							h={50}
-							rounded={"100%"}
-							bg={"#0CBC8B"}>
-							QA
-						</Flex>
+						<Avatar.Root
+							size={"xl"}
+							variant={"solid"}>
+							<Avatar.Fallback name="Seyi Ajiboye" />
+						</Avatar.Root>
+
 						<svg
 							width="8"
 							height="6"

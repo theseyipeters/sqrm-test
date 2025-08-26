@@ -7,8 +7,8 @@ export const FundRLogo = () => {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg">
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M20.1022 0.139692L3.77345 6.51125C1.06299 7.56896 -0.0860777 10.4202 1.32528 12.7015C3.24287 15.8009 6.99614 17.9065 11.3125 17.9065C17.5782 17.9065 22.6577 13.4693 22.6577 7.99636V1.58749C22.6577 0.672865 21.7992 0 20.8428 0C20.5982 0 20.3469 0.044097 20.1019 0.139692H20.1022Z"
 				fill="#000A4A"
 			/>
@@ -37,20 +37,20 @@ export const FundRLogo = () => {
 				fill="#000A4A"
 			/>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M98.0332 22.1813C98.4127 22.3358 98.8046 22.4128 99.1357 22.3977C99.1378 22.3977 99.1396 22.3974 99.1417 22.3974L99.1654 20.3415C99.1664 20.2691 99.0732 20.2253 99.0044 20.2657L97.0247 21.4322C97.1849 21.699 97.5552 21.9867 98.0329 22.1813H98.0332Z"
 				fill="#00C6FB"
 			/>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M99.053 22.5944C98.7074 22.5944 98.316 22.5118 97.9386 22.3579C97.4179 22.146 97.0264 21.8432 96.8382 21.5416L95.8318 22.1349C95.7531 22.1812 95.7816 22.2879 95.8756 22.299L97.5658 22.5C97.6653 22.5121 97.7564 22.5549 97.8224 22.6206L98.9454 23.7425C99.0079 23.8048 99.1254 23.7668 99.1261 23.6839L99.1388 22.5926C99.1106 22.5941 99.0816 22.5944 99.0527 22.5944H99.053Z"
 				fill="#00C6FB"
 			/>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M99.0535 22.4391C98.7079 22.4391 98.3164 22.3564 97.939 22.2025C97.0512 21.8408 96.5379 21.2164 96.7705 20.7803C97.0032 20.3446 97.8811 20.2866 98.7689 20.6484C99.0595 20.7668 99.3225 20.9203 99.5304 21.0921C99.5752 21.1291 99.577 21.1911 99.5346 21.2303C99.4919 21.2694 99.4213 21.271 99.3765 21.234C99.1862 21.0761 98.9433 20.9351 98.6743 20.8254C97.9256 20.5204 97.1465 20.5376 96.9731 20.8627C96.7995 21.1877 97.2852 21.7199 98.0336 22.0249C98.4131 22.1794 98.8046 22.2565 99.1361 22.2414C99.4421 22.2275 99.6543 22.1372 99.7344 21.9876C99.8174 21.8316 99.7373 21.6536 99.655 21.5315C99.6236 21.485 99.6412 21.4251 99.6946 21.3977C99.7479 21.3703 99.8163 21.3857 99.8478 21.4322C100.003 21.6617 100.035 21.8883 99.9371 22.0699C99.8206 22.288 99.5403 22.4181 99.1477 22.4363C99.1163 22.4378 99.0849 22.4384 99.0531 22.4384L99.0535 22.4391Z"
 				fill="#00C6FB"
 			/>
@@ -109,9 +109,9 @@ export const GlobeSvg = () => {
 			<path
 				d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22M12 2C9.49872 4.73835 8.07725 8.29203 8 12C8.07725 15.708 9.49872 19.2616 12 22M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22M2.50002 9H21.5M2.5 15H21.5"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
@@ -127,23 +127,23 @@ export const DashboardSvg = () => {
 			<path
 				d="M10.5 19.9V4.1C10.5 2.6 9.86 2 8.27 2H4.23C2.64 2 2 2.6 2 4.1V19.9C2 21.4 2.64 22 4.23 22H8.27C9.86 22 10.5 21.4 10.5 19.9Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M22 10.9V4.1C22 2.6 21.36 2 19.77 2H15.73C14.14 2 13.5 2.6 13.5 4.1V10.9C13.5 12.4 14.14 13 15.73 13H19.77C21.36 13 22 12.4 22 10.9Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M22 19.9V18.1C22 16.6 21.36 16 19.77 16H15.73C14.14 16 13.5 16.6 13.5 18.1V19.9C13.5 21.4 14.14 22 15.73 22H19.77C21.36 22 22 21.4 22 19.9Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
@@ -160,30 +160,30 @@ export const AccountsSvg = () => {
 			<path
 				d="M18.04 13.55C17.62 13.96 17.38 14.55 17.44 15.18C17.53 16.26 18.52 17.05 19.6 17.05H21.5V18.24C21.5 20.31 19.81 22 17.74 22H6.26C4.19 22 2.5 20.31 2.5 18.24V11.51C2.5 9.44001 4.19 7.75 6.26 7.75H17.74C19.81 7.75 21.5 9.44001 21.5 11.51V12.95H19.48C18.92 12.95 18.41 13.17 18.04 13.55Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M2.5 12.4103V7.84035C2.5 6.65035 3.23 5.5903 4.34 5.1703L12.28 2.1703C13.52 1.7003 14.85 2.62033 14.85 3.95033V7.75032"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M22.5588 13.9702V16.0302C22.5588 16.5802 22.1188 17.0302 21.5588 17.0502H19.5988C18.5188 17.0502 17.5288 16.2602 17.4388 15.1802C17.3788 14.5502 17.6188 13.9602 18.0388 13.5502C18.4088 13.1702 18.9188 12.9502 19.4788 12.9502H21.5588C22.1188 12.9702 22.5588 13.4202 22.5588 13.9702Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M7 12H14"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
@@ -200,9 +200,9 @@ export const TransfersSvg = () => {
 			<path
 				d="M6 6L8 4M8 4L6 2M8 4H6C3.79086 4 2 5.79086 2 8M18 18L16 20M16 20L18 22M16 20H18C20.2091 20 22 18.2091 22 16M10.189 6.5C10.8551 3.91216 13.2042 2 16 2C19.3137 2 22 4.68629 22 8C22 10.7957 20.0879 13.1449 17.5001 13.811M14 16C14 19.3137 11.3137 22 8 22C4.68629 22 2 19.3137 2 16C2 12.6863 4.68629 10 8 10C11.3137 10 14 12.6863 14 16Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
@@ -219,23 +219,23 @@ export const TransactionsSvg = () => {
 			<path
 				d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M15.75 9H8.25"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M15.75 15H8.25"
 				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
@@ -251,18 +251,18 @@ export const SettingsSvg = () => {
 			<path
 				d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
 				stroke="currentColor"
-				stroke-width="1.5"
+				strokeWidth="1.5"
 				stroke-miterlimit="10"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M2 12.8804V11.1204C2 10.0804 2.85 9.22043 3.9 9.22043C5.71 9.22043 6.45 7.94042 5.54 6.37042C5.02 5.47042 5.33 4.30042 6.24 3.78042L7.97 2.79042C8.76 2.32042 9.78 2.60042 10.25 3.39042L10.36 3.58042C11.26 5.15042 12.74 5.15042 13.65 3.58042L13.76 3.39042C14.23 2.60042 15.25 2.32042 16.04 2.79042L17.77 3.78042C18.68 4.30042 18.99 5.47042 18.47 6.37042C17.56 7.94042 18.3 9.22043 20.11 9.22043C21.15 9.22043 22.01 10.0704 22.01 11.1204V12.8804C22.01 13.9204 21.16 14.7804 20.11 14.7804C18.3 14.7804 17.56 16.0604 18.47 17.6304C18.99 18.5404 18.68 19.7004 17.77 20.2204L16.04 21.2104C15.25 21.6804 14.23 21.4004 13.76 20.6104L13.65 20.4204C12.75 18.8504 11.27 18.8504 10.36 20.4204L10.25 20.6104C9.78 21.4004 8.76 21.6804 7.97 21.2104L6.24 20.2204C5.33 19.7004 5.02 18.5304 5.54 17.6304C6.45 16.0604 5.71 14.7804 3.9 14.7804C2.85 14.7804 2 13.9204 2 12.8804Z"
 				stroke="currentColor"
-				stroke-width="1.5"
+				strokeWidth="1.5"
 				stroke-miterlimit="10"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
@@ -279,9 +279,9 @@ export const BellSvg = () => {
 			<path
 				d="M13.9998 21H9.99977M17.9998 8C17.9998 6.4087 17.3676 4.88258 16.2424 3.75736C15.1172 2.63214 13.5911 2 11.9998 2C10.4085 2 8.88235 2.63214 7.75713 3.75736C6.63192 4.88258 5.99977 6.4087 5.99977 8C5.99977 11.0902 5.22024 13.206 4.34944 14.6054C3.6149 15.7859 3.24763 16.3761 3.2611 16.5408C3.27601 16.7231 3.31463 16.7926 3.46155 16.9016C3.59423 17 4.19237 17 5.38863 17H18.6109C19.8072 17 20.4053 17 20.538 16.9016C20.6849 16.7926 20.7235 16.7231 20.7384 16.5408C20.7519 16.3761 20.3846 15.7859 19.6501 14.6054C18.7793 13.206 17.9998 11.0902 17.9998 8Z"
 				stroke="#23262F"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
